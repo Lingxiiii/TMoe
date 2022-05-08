@@ -10,20 +10,22 @@
     <string name="ProhibitEnableReactions">Prohibit Enable Reactions</string>
     <string name="ProhibitChatGreetings">Prohibit Chat Greetings</string>
     <string name="HidePhoneNumber">Hide Phone Number</string>
+    <string name="HistoricalNewsOption">Historical News Option</string>
     <string name="AddSubItemChannel">AddSubItemChannel</string>
     <string name="AddSubItemChannelD">AddSubItemChannel</string>
     <string name="ChannelDetailNumbers">ChannelDetailNumbers</string>
     <string name="ChannelDetailNumbersD">ChannelDetailNumbers</string>
     <string name="AddInfoContainer">AddInfoContainer</string>
-    <string name="ProhibitSpoilers">Prohibit Spoilers</string>
     <string name="AddInfoContainerD">AddInfoContainer</string>
-    <string name="HistoricalNewsOption">Historical News Option</string>
+    <string name="ProhibitSpoilers">Prohibit Spoilers</string>
+    <string name="SendCommand">Ask for tap command</string>
     <string name="AntiAntiCopy">Anti-Anti-Copy message</string>
     <string name="AntiAntiCopyD">Conflict with Anti-Anti-Forward</string>
     <string name="ChatUiSettings">Chat Settings</string>
     <string name="BasicFunction">Basic</string>
     <string name="AboutTMoe">About TMoe</string>
     <string name="About">About</string>
+    <string name="Misc">Miscellaneous</string>
     <string name="GitHub" translatable="false">GitHub</string>
     <string name="SourceCode">Source code</string>
     <string name="LicenseNotices">License notices</string>
@@ -34,4 +36,11 @@
     <string name="VersionInfo">Version</string>
     <string name="TextCopied">Text copied to clipboard.</string>
     <string name="HideSponsoredMsg">Hide sponsored message</string>
+    <string name="ShowMsgId">Show message ID</string>
+    <string name="ReloadMessage">Reload Message</string>
+    <string name="RestartClient">Restart Telegram</string>
+    <string name="LostMsgMitigation">If you have lost messages</string>
+    <string name="AddReloadMsgBtn">Reload Message Button</string>
+    <string name="AddReloadMsgBtnDesc">Add Reload Message Button in chat menu</string>
+    <string name="RestrictContentMitigationDesc">Allow copy, save and screenshot in secret chats</string>
 </resources>

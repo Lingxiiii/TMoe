@@ -8,6 +8,7 @@
     <string name="ChatUiSettings">聊天页面设置</string>
     <string name="BasicFunction">基础功能</string>
     <string name="AboutTMoe">关于 TMoe</string>
+    <string name="Misc">杂项</string>
     <string name="About">关于</string>
     <string name="SourceCode">源代码</string>
     <string name="LicenseNotices">开放源代码许可</string>
@@ -32,4 +33,12 @@
     <string name="ChannelDetailNumbersD">频道关注者显示详细人数 3k → 3000</string>
     <string name="AddInfoContainer">允许查询</string>
     <string name="AddInfoContainerD">非管理员也可查看一些信息</string>
+    <string name="SendCommand">询问是否送出 Bot 指令</string>
+    <string name="ShowMsgId">显示消息 ID</string>
+    <string name="RestartClient">重启 Telegram</string>
+    <string name="ReloadMessage">重新加载消息</string>
+    <string name="LostMsgMitigation">针对丢消息的辅助手段</string>
+    <string name="AddReloadMsgBtn">添加刷新消息按钮</string>
+    <string name="AddReloadMsgBtnDesc">在聊天菜单添加刷新消息按钮</string>
+    <string name="RestrictContentMitigationDesc">允许在私密聊天界面复制消息保存文件以及截图</string>
 </resources>

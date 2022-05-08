@@ -6,6 +6,7 @@ import cc.ioctl.tmoe.hook.func.*
 import cc.ioctl.tmoe.ui.LocaleController
 import cc.ioctl.tmoe.ui.dsl.BaseHierarchyFragment
 import cc.ioctl.tmoe.ui.dsl.HierarchyDescription
+import kotlin.system.exitProcess
 
 class SettingsFragment : BaseHierarchyFragment() {
     override val hierarchy = HierarchyDescription(
@@ -17,7 +18,8 @@ class SettingsFragment : BaseHierarchyFragment() {
                 EnableDebugMode.INSTANCE, "EnableDebugMode", R.string.EnableDebugMode
             )
             functionSwitch(
-                AntiAntiForward, "AntiAntiForward", R.string.AntiAntiForward
+                AntiAntiForward, "AntiAntiForward", R.string.AntiAntiForward,
+                "RestrictContentMitigationDesc", R.string.RestrictContentMitigationDesc
             )
             functionSwitch(
                 HideSponsoredMsg, "HideSponsoredMsg", R.string.HideSponsoredMsg
@@ -82,15 +84,33 @@ class SettingsFragment : BaseHierarchyFragment() {
                     LocaleController.getString("ChannelDetailNumbersD", R.string.ChannelDetailNumbersD)
                 }
             )
-
             functionSwitch(
                 AddInfoContainer, "AddInfoContainer",  R.string.AddInfoContainer,
                 descProvider ={
                     LocaleController.getString("AddInfoContainerD", R.string.AddInfoContainerD)
                 }
             )
+            functionSwitch(
+                SendCommand, "SendCommand",  R.string.SendCommand
+            )
 
-
+        }
+        category("LostMsgMitigation", R.string.LostMsgMitigation) {
+            functionSwitch(
+                ShowMsgId.INSTANCE, "ShowMsgId", R.string.ShowMsgId
+            )
+            functionSwitch(
+                AddReloadMsgBtn.INSTANCE,
+                "AddReloadMsgBtn", R.string.AddReloadMsgBtn,
+                "AddReloadMsgBtnDesc", R.string.AddReloadMsgBtnDesc
+            )
+        }
+        category("Misc", R.string.Misc) {
+            textValue("RestartClient", R.string.RestartClient) {
+                // calling System.exit(0) will work, because AM will automatically restart the app
+                // so we don't need to restart the app manually
+                exitProcess(0)
+            }
         }
         category("About", R.string.About) {
             textValue("AboutTMoe", R.string.AboutTMoe, onClick = {
