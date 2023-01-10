@@ -19,7 +19,6 @@ public class HookEntry implements IXposedHookLoadPackage, IXposedHookZygoteInit 
             "nekox.messenger",
             "com.jasonkhew96.pigeongram",
             "app.nicegram",
-            "ir.ilmili.telegraph",
             "xyz.nextalone.nagram",
             "org.telegram.messenger.web",
             "com.cool2645.nekolite",
@@ -35,11 +34,12 @@ public class HookEntry implements IXposedHookLoadPackage, IXposedHookZygoteInit 
             "icu.ketal.yunigram",
             "icu.ketal.yunigram.lspatch",
             "icu.ketal.yunigram.beta",
-            "it.owlgram.android",
             "icu.ketal.yunigram.lspatch.beta",
             "org.forkgram.messenger",
             "com.blxueya.gugugram",
-            "com.blxueya.gugugramx"
+            "com.blxueya.gugugramx",
+            "com.evildayz.code.telegraher",
+            "com.exteragram.messenger"
     );
 
 

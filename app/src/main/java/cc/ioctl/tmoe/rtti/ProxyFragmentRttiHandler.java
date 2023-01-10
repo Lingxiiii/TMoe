@@ -27,6 +27,7 @@ import cc.ioctl.tmoe.base.BaseProxyFragment;
 import cc.ioctl.tmoe.lifecycle.Parasitics;
 import cc.ioctl.tmoe.util.HostFirstClassReferencer;
 import cc.ioctl.tmoe.util.HostInfo;
+import cc.ioctl.tmoe.util.Initiator;
 import cc.ioctl.tmoe.util.Reflex;
 import cc.ioctl.tmoe.util.Utils;
 import dalvik.system.DexClassLoader;
@@ -182,11 +183,18 @@ public class ProxyFragmentRttiHandler {
         }
         try {
             return (Boolean) Objects.requireNonNull(sHostActionBarLayoutClass.getMethod("presentFragment", sHostBaseFragmentClass,
-                            boolean.class, boolean.class, boolean.class, boolean.class, View.class)
+                            boolean.class, boolean.class, boolean.class, boolean.class, Initiator.loadClass("org.telegram.ui.ActionBar.ActionBarPopupWindow$ActionBarPopupWindowLayout"))
                     .invoke(parentLayout, fragment, removeLast, forceWithoutAnimation, check, preview, menu));
-        } catch (ReflectiveOperationException e) {
-            Utils.loge(e);
-            return false;
+        } catch (ReflectiveOperationException e1) {
+            // for older versions before v8.2.2
+            try {
+                return (Boolean) Objects.requireNonNull(sHostActionBarLayoutClass.getMethod("presentFragment", sHostBaseFragmentClass,
+                                boolean.class, boolean.class, boolean.class, boolean.class, View.class)
+                        .invoke(parentLayout, fragment, removeLast, forceWithoutAnimation, check, preview, menu));
+            } catch (ReflectiveOperationException e2) {
+                Utils.loge(e1);
+                return false;
+            }
         }
     }
 
@@ -493,6 +501,7 @@ public class ProxyFragmentRttiHandler {
     private static Class<?> sHostBaseFragmentClass;
     private static Class<?> sHostActionBarLayoutClass;
     private static Class<?> sHostActionBarClass;
+    private static Class<?> sHostActionBarPopupWindowLayoutClass;
 
     public static void initProxyFragmentClass(Class<?> hostBaseFragmentClass)
             throws ReflectiveOperationException {
