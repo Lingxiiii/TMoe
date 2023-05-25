@@ -158,8 +158,13 @@ public class SettingEntryHook implements Initializable {
             Parasitics.injectModuleResources(HostInfo.getApplication().getResources());
             String text = LocaleController.getString("TMoeSettings", R.string.TMoeSettings);
             int iconResId = R.drawable.ic_setting_hex_outline_24;
-            Reflex.invokeVirtual(textCell, "setTextAndIcon", text, iconResId, true,
-                    String.class, int.class, boolean.class, void.class);
+            try {
+                Reflex.invokeVirtual(textCell, "setTextAndIcon", text, iconResId, true,
+                        CharSequence.class, int.class, boolean.class, void.class);
+            } catch (NoSuchMethodException e) {
+                Reflex.invokeVirtual(textCell, "setTextAndIcon", text, iconResId, true,
+                        String.class, int.class, boolean.class, void.class);
+            }
         } else {
             Utils.loge(new IllegalStateException("textCell is null"));
         }
@@ -173,7 +178,11 @@ public class SettingEntryHook implements Initializable {
                 fragment = Reflex.getFirstByType(param.thisObject, kProfileActivity);
             } catch (NoSuchFieldException e) {
                 // strange, but it happens if R8 was asked to repackage the app aggressively
-                fragment = Reflex.getInstanceObjectOrNull(param.thisObject, "f$0", Object.class);
+                fragment = Reflex.getInstanceObjectOrNull(param.thisObject, "f$0");
+                // check runtime type
+                if (fragment != null && !kProfileActivity.isInstance(fragment)) {
+                    fragment = null;
+                }
                 if (fragment == null) {
                     fragment = Reflex.getInstanceObjectOrNull(param.thisObject, "a", Object.class);
                 }
